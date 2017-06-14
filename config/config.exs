@@ -2,6 +2,11 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
+config :eversign, 
+  access_key: {:system, "EVERSIGN_ACCESS_KEY"},
+  business_id: {:system, "EVERSIGN_BUSINESS_ID"},
+  api_module: Eversign.API.HTTP
+
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
 # file won't be loaded nor affect the parent project. For this reason,

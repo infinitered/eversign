@@ -1,18 +1,31 @@
 defmodule Eversign do
   @moduledoc """
-  Documentation for Eversign.
+  Provides functions to interact with the Eversign API.
+
+  ## Configuration
+
+      config :eversign, api_module: Eversign.API.HTTP
+
+  In test mode:
+
+      config :eversign, api_module: Eversign.API.Mock
   """
 
-  @doc """
-  Hello world.
+  @api_module Application.get_env(:eversign, :api_module) || Eversign.API.HTTP
 
-  ## Examples
+  def use_template(params) do
+    @api_module.use_template(params)
+  end
 
-      iex> Eversign.hello
-      :world
+  def list_documents(type) do
+    @api_module.list_documents(type)
+  end
 
-  """
-  def hello do
-    :world
+  def download_original(hash) do
+    @api_module.download_original(hash)
+  end
+
+  def download_final(hash) do
+    @api_module.download_final(hash)
   end
 end
