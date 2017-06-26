@@ -6,7 +6,7 @@ defmodule Eversign.API.HTTP do
   alias Eversign.Config
 
   def use_template(params) do
-    unwrap post("/document", params)
+    unwrap post("/document", Poison.encode!(params), [{"Content-Type", "application/json"}])
   end
 
   def list_documents(type) do
