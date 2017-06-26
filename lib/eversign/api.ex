@@ -22,9 +22,9 @@ defmodule Eversign.API do
     :ok | # TODO: File?
     {:error, HTTPoison.Error.t}
 
-  # @callback get_template(String.t) ::
-    # {:ok, Eversign.Document.t} |
-    # {:error, HTTPoison.Error.t}
+  @callback get_document(String.t) ::
+    {:ok, Eversign.Document.t} |
+    {:error, HTTPoison.Error.t}
 
   # @callback list_businesses :: 
     # {:ok, [Eversign.Business.t]} |

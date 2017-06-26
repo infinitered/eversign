@@ -15,6 +15,10 @@ defmodule Eversign do
     api_module().use_template(params)
   end
 
+  def get_document(hash) do
+    api_module().get_document(hash)
+  end
+
   def list_documents(type) do
     api_module().list_documents(type)
   end
