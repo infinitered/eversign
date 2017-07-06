@@ -46,6 +46,9 @@ defmodule Eversign.API.HTTP do
   # Helpers
   # -------------------
 
+  defp unwrap({:ok, %{body: %{"success" => false} = body}}) do
+    {:error, Eversign.Exception.exception(body)}
+  end
   defp unwrap({:ok, %{body: body}}), do: {:ok, body}
   defp unwrap(other), do: other
 
