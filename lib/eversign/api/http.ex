@@ -5,16 +5,18 @@ defmodule Eversign.API.HTTP do
 
   alias Eversign.Config
 
+  @opts [timeout: 25_000, recv_timeout: 25_000]
+
   def use_template(params) do
     unwrap post("/document", Poison.encode!(params), [{"Content-Type", "application/json"}])
   end
 
-  def get_document(hash) do
-    unwrap get("/document?document_hash=#{hash}")
+  def get_document(hash, opts \\ nil) do
+    unwrap get("/document?document_hash=#{hash}", [], opts || @opts)
   end
 
-  def list_documents(type) do
-    unwrap get("/document?type=#{type}")
+  def list_documents(type, opts \\ nil) do
+    unwrap get("/document?type=#{type}", [], opts || @opts)
   end
 
   def download_original(hash) do
