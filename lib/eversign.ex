@@ -19,6 +19,10 @@ defmodule Eversign do
     api_module().get_document(hash)
   end
 
+  def cancel_document(hash) do
+    api_module().cancel_document(hash)
+  end
+
   def list_documents(type) do
     api_module().list_documents(type)
   end
