@@ -26,7 +26,7 @@ defmodule Eversign.API do
     {:ok, Eversign.Document.t} |
     {:error, HTTPoison.Error.t}
 
-  # @callback list_businesses :: 
+  # @callback list_businesses ::
     # {:ok, [Eversign.Business.t]} |
     # {:error, HTTPoison.Error.t}
 
@@ -42,9 +42,9 @@ defmodule Eversign.API do
     # :ok |
     # {:error, HTTPoison.Error.t}
 
-  # @callback cancel_document(String.t) ::
-    # :ok |
-    # {:error, HTTPoison.Error.t}
+  @callback cancel_document(String.t) ::
+    :ok |
+    {:error, HTTPoison.Error.t}
 
   # @callback upload(String.t) ::
     # {:ok, map} |

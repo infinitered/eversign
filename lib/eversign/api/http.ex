@@ -13,6 +13,10 @@ defmodule Eversign.API.HTTP do
     unwrap get("/document?document_hash=#{hash}")
   end
 
+  def cancel_document(hash) do
+    unwrap delete("/document?document_hash#{hash}&cancel=1")
+  end
+
   def list_documents(type) do
     unwrap get("/document?type=#{type}")
   end
