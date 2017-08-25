@@ -7,8 +7,8 @@ defmodule Eversign.API.HTTP do
 
   @opts [timeout: 25_000, recv_timeout: 25_000]
 
-  def use_template(params) do
-    unwrap post("/document", Poison.encode!(params), [{"Content-Type", "application/json"}])
+  def use_template(params, opts \\ nil) do
+    unwrap post("/document", Poison.encode!(params), [{"Content-Type", "application/json"}], opts || @opts)
   end
 
   def get_document(hash, opts \\ nil) do
