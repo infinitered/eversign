@@ -47,7 +47,7 @@ defmodule Eversign.API.HTTP do
 
   def process_response_body(body) do
     if Code.ensure_loaded?(Honeybadger) do
-      apply(Honeybadger, :context, %{response: body})
+      apply(Honeybadger, :context, [%{response: body}])
     end
 
     Poison.decode!(body)
