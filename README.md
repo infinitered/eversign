@@ -2,6 +2,8 @@
 
 Package for interacting with [Eversign's API](https://eversign.com/api/documentation).
 
+Originally built by [Infinite Red](https://infinite.red), a U.S.-based web and mobile development company.
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
